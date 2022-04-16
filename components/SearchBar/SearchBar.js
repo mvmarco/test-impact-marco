@@ -18,7 +18,6 @@ const StyledCocktailSearch = styled.div`
 `;
 
 const StyledCocktailInput = styled.input`
-  border: none;
   padding: 16px;
   border-radius: 4px;
   outline: none;

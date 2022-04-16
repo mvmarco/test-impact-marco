@@ -15,7 +15,7 @@ const Layout = ({ children, title = "Impact Food" }) => {
         <StyledLinkHeader>
           <Link href="/">
             <StyledAnchorLink>
-              <h1>IMPACT FOOD</h1>
+              <h1>IMPACT BEER</h1>
             </StyledAnchorLink>
           </Link>
         </StyledLinkHeader>
@@ -37,7 +37,7 @@ const StyledLinkHeader = styled.div`
   font-size: 1.5rem;
 `;
 const StyledAnchorLink = styled.a`
-  > h1 {
+  h1 {
     text-decoration: none;
     cursor: pointer;
   }
