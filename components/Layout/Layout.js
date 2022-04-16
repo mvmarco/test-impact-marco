@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
+
 const Layout = ({ children, title = "Impact Food" }) => {
   return (
     <StyledLayoutContainer>
@@ -34,7 +35,6 @@ const StyledLinkHeader = styled.div`
   justify-content: center;
   margin: 60px;
   font-size: 1.5rem;
-  
 `;
 const StyledAnchorLink = styled.a`
   > h1 {

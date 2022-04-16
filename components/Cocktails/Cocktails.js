@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const Cocktails = ({name}) => {
+const Cocktails = ({ name, img }) => {
   return (
     <div>
-      <h1>{name}</h1>
+      <h4>{name}</h4>
+      <img src={img} alt="" />
     </div>
   );
-}
+};
 
-export default Cocktails
+export default Cocktails;
