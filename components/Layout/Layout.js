@@ -33,7 +33,7 @@ const StyledLayoutContainer = styled.div`
 const StyledLinkHeader = styled.div`
   display: flex;
   justify-content: center;
-  margin: 60px;
+  padding: 60px;
   font-size: 1.5rem;
 `;
 const StyledAnchorLink = styled.a`

@@ -11,48 +11,47 @@ const Cocktails = ({
   setComment,
 }) => {
   const [showComment, setShowComment] = useState(false);
-  const [stateComment, setStateComment] = useState('')
+  const [stateComment, setStateComment] = useState("");
   return (
     <>
       <StyledCocktailContainer>
         <StyledCocktailRow>
-          <img
-            src={thumbnailImg}
-            alt="thumbnail image recipe"
-            style={{
-              borderRadius: "50%",
-              height: "80px",
-              width: "80px",
-              marginRight: "10px",
-            }}
-          />
-          <h1>{name}</h1>
+          <StyledCocktailImg src={thumbnailImg} alt="thumbnail image recipe" />
+          <StyledCocktailMainInfo>
+            <h1>{name}</h1>
+            <div>
+              {showComment && (
+                <StyledTextArea
+                  value={stateComment}
+                  onChange={(e) => setStateComment(e.target.value)}
+                ></StyledTextArea>
+              )}
+              {!comment ? (
+                <StyledButton
+                  onClick={() => {
+                    setShowComment(!showComment);
+                    if (showComment) {
+                      setComment(stateComment);
+                    }
+                  }}
+                >
+                  {showComment ? "save comment" : "add comment"}
+                </StyledButton>
+              ) : (
+                <div style={{ color: "grey", fontStyle: "italic" }}>
+                  Comment:
+                  <br />
+                  {comment}
+                </div>
+              )}
+            </div>
+          </StyledCocktailMainInfo>
         </StyledCocktailRow>
-        <StyledCoinData>
+        <StyledCocktailData>
           <p>Cal. {calories.toLocaleString()}</p>
           <p>Origin: {cuisineType}</p>
-        </StyledCoinData>
-        {!comment ? (
-          <button
-            onClick={() => {
-              setShowComment(!showComment);
-              if (showComment){
-                setComment(stateComment);
-              } 
-            }}
-          >
-            {showComment ? "save comment" : "add comment"}
-          </button>
-        ) : (
-          <div>{comment}</div>
-        )}
+        </StyledCocktailData>
       </StyledCocktailContainer>
-      {showComment && (
-        <textarea
-          value={stateComment}
-          onChange={(e) => setStateComment(e.target.value)}
-        ></textarea>
-      )}
     </>
   );
 };
@@ -60,6 +59,7 @@ const Cocktails = ({
 const StyledCocktailContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 const StyledCocktailRow = styled.div`
@@ -81,7 +81,39 @@ const StyledCocktailRow = styled.div`
   }
 `;
 
-const StyledCoinData = styled.div`
+const StyledCocktailImg = styled.img`
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  margin-right: 10px;
+`;
+
+const StyledCocktailMainInfo = styled.div`
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
+
+const StyledTextArea = styled.textarea`
+  width: 112px;
+  box-sizing: border-box;
+  height: 32px;
+  width: 112px;
+  border: 2px solid #212222;
+  outline: none;
+  background-color: #ffffff;
+  margin: 1rem 0;
+  font-size: 16px;
+  overflow: auto;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none;
+`;
+
+const StyledCocktailData = styled.div`
   display: flex;
   text-align: right;
   justify-content: space-between;
@@ -90,5 +122,17 @@ const StyledCoinData = styled.div`
   p {
     width: 250px;
   }
+`;
+
+const StyledButton = styled.button`
+  box-sizing: border-box;
+  height: 32px;
+  width: 112px;
+  border: 2px solid #212222;
+  outline: none;
+  background-color: #ffffff;
+  margin: 1rem 0;
+  font-size: 16px;
+  cursor: pointer;
 `;
 export default Cocktails;

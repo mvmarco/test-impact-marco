@@ -110,12 +110,12 @@ export default function Home({ filteredCocktails }) {
               {cuisine}
             </StyledButton>
           ))}
-          <button onClick={sortCaloriesHandle}>
+          <StyledButton onClick={sortCaloriesHandle}>
             Sort by Calories<div>{sortCalories}</div>
-          </button>
-          <button onClick={sortNamesHandle}>
+          </StyledButton>
+          <StyledButton onClick={sortNamesHandle}>
             Sort by Name <div>{sortNames}</div>
-          </button>
+          </StyledButton>
         </StyledButtonContainer>
         <CocktailList
           filteredCocktails={lsitOfDrinks}
@@ -153,8 +153,8 @@ const StyledButtonContainer = styled.div`
 `;
 const StyledButton = styled.button`
   box-sizing: border-box;
-  height: 32px;
-  width: 112px;
+  height: 62px;
+  width: 115px;
   border: 2px solid #212222;
   outline: none;
   background-color: #ffffff;
